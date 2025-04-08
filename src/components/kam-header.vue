@@ -3,23 +3,7 @@
         <div class="nav__container container grid"> 
             <img class="logo" src="https://placehold.co/120x40" alt="Logo">
             <nav class="nav">
-                <ul class="nav__list list">
-                    <li class="list__link link">
-                        <a href="#header">Home</a>
-                    </li>
-                    <li  class="list__link link">
-                        <a href="#about">About</a>
-                    </li>
-                    <li  class="list__link link">
-                        <a href="#description">Description</a>
-                    </li>
-                    <li  class="list__link link">
-                        <a href="#price">Price</a>
-                    </li>
-                    <li  class="list__link link">
-                        <a href="#catalog">catalog</a>
-                    </li>
-                </ul>
+                <kam-nav-list :link-list="linkList"/>
 
                 <ul class="nav__list social">
                     <li class="social__link link">
@@ -47,7 +31,36 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import kamNavList from './layout-components/kam-nav-list.vue';
 
+    const linkList = ref([
+        {
+            text: "Home",
+            link: "#home",
+            key: 0
+        },
+        {
+            text: "Catalog",
+            link: "#catalog",
+            key: 1
+        },
+        {
+            text: "Price",
+            link: "#price",
+            key: 2
+        },
+        {
+            text: "Description",
+            link: "#description",
+            key: 3
+        },
+        {
+            text: "Contacts",
+            link: "#contacts",
+            key: 4
+        }
+    ])
 </script>
 
 <style scoped>
@@ -71,7 +84,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.nav__list {
+.social {
     display: flex;
     gap: 0.75rem;
 }
