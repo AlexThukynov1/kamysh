@@ -1,5 +1,7 @@
 <template>
-    <h1>Admin page</h1>
+    <footer id="footer" class="footer">
+footer
+    </footer>
 </template>
 
 <script setup lang="ts">

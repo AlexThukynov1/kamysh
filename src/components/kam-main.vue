@@ -1,5 +1,7 @@
 <template>
-    <h1>Admin page</h1>
+    <main id="main" class="main">
+main
+    </main>
 </template>
 
 <script setup lang="ts">
