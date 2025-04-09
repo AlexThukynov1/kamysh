@@ -3,15 +3,19 @@
         <div
             class="slider-item"
             v-for="(item, key) in items" 
-            v-show="activeIndex === key"
+            :class="{'lazy-visible': activeIndex === key}"
             :key="key"  
         >
-            <img 
-            :src="item.src" 
-            :alt="item.alt"
-            
+            <div
+            v-if="activeIndex === key"
             >
-            <span class="slider-text">{{ item.text }}</span>
+                <img 
+                :src="item.src" 
+                :alt="item.alt"
+                
+                >
+                <span class="slider-text">{{ item.text }}</span>
+            </div>
         </div>
     </div>
 </template>
@@ -75,7 +79,7 @@ const items = ref<ISliderData[]>([
  }
 
 onMounted(() => {
-    intervalId = setInterval(indexIterator, 1000);
+    intervalId = setInterval(indexIterator, 5000);
 })
 
 onUnmounted(() => {
@@ -98,6 +102,11 @@ onUnmounted(() => {
 } */
 .slider-item {
     position: relative;
+    opacity: 0;
+    transition: opacity 2s ease-out;
+}
+.lazy-visible {
+    opacity: 1;
 }
 .slider-text {
     position: absolute;
