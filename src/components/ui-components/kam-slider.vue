@@ -9,7 +9,7 @@
             <img 
             :src="item.src" 
             :alt="item.alt"
-            :class="{activeSlide: 'visible-image'}"
+            
             >
             <span class="slider-text">{{ item.text }}</span>
         </div>
@@ -17,50 +17,73 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-    const activeIndex = ref(0)
+import { ref,onMounted, onUnmounted} from 'vue';
 
-    const indexIterator = computed(() => {
+interface ISliderData {
+    src: string;
+    alt: string;
+    text: string;
+    key: number;
+}
+    
+const activeIndex = ref<number>(0);
+let intervalId: number | null = null
 
-    })
-    const items = ref([
-        {
-            src: "https://placehold.co/600x400",
-            alt: "Placeholder image",
-            text: "Img 1",
-            key: 0,
-        },
-        {
-            src: "https://placehold.co/600x400",
-            alt: "Placeholder image",
-            key: 1,
-            text: "Img 2"
-        },
-        {
-            src: "https://placehold.co/600x400",
-            alt: "Placeholder image",
-            key: 2,
-            text: "Img 3"
-        },
-        {
-            src: "https://placehold.co/600x400",
-            alt: "Placeholder image",
-            key: 3,
-            text: "Img 4"
-        },
-        {
-            src: "https://placehold.co/600x400",
-            alt: "Placeholder image",
-            key: 4,
-            text: "Img 5"
-        },
-        {
-            src: "https://placehold.co/600x400",
-            alt: "Placeholder image",
-            key: 5,
-            text: "Img 6"
-        },
-    ])
+const items = ref<ISliderData[]>([
+    {
+        src: "https://placehold.co/1000x400",
+        alt: "Placeholder image",
+        text: "Img 1",
+        key: 0,
+    },
+    {
+        src: "https://placehold.co/1000x400",
+        alt: "Placeholder image",
+        key: 1,
+        text: "Img 2"
+    },
+    {
+        src: "https://placehold.co/1000x400",
+        alt: "Placeholder image",
+        key: 2,
+        text: "Img 3"
+    },
+    {
+        src: "https://placehold.co/1000x400",
+        alt: "Placeholder image",
+        key: 3,
+        text: "Img 4"
+    },
+    {
+        src: "https://placehold.co/1000x400",
+        alt: "Placeholder image",
+        key: 4,
+        text: "Img 5"
+    },
+    {
+        src: "https://placehold.co/1000x400",
+        alt: "Placeholder image",
+        key: 5,
+        text: "Img 6"
+    },
+])
+ function indexIterator(): void {
+    activeIndex.value = activeIndex.value + 1
+    if(items.value.length === activeIndex.value) {
+        activeIndex.value = 0
+    }
+ }
+
+onMounted(() => {
+    intervalId = setInterval(indexIterator, 1000);
+})
+
+onUnmounted(() => {
+    if(intervalId !== null) {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+})
 </script>
 
 <style scoped>
