@@ -17,7 +17,14 @@
             </div>
             <kam-button>Call to action</kam-button>
         </kam-section>
-        <kam-section id="description"></kam-section>
+        <kam-section id="description" class="section">
+            <h2 class="section__title">Description</h2>
+            <div class="description__section grid">
+                <img class="description__img-side" src="https://placehold.co/600x400" alt="Placeholder image">
+                <p class="text-side__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit quas, vitae ex temporibus perspiciatis molestias possimus maxime? Tenetur sed optio ut tempore at? Blanditiis odit voluptas, doloribus sapiente delectus autem! Autem distinctio inventore ipsum eos facere. Qui animi iusto rerum!</p>
+            </div>
+            <kam-button>Call to action</kam-button>
+        </kam-section>
         <kam-section id="contacts"></kam-section>
     </main>
 </template>
@@ -35,6 +42,7 @@
 .section__slider {
 
 }
+.description__section,
 .price__section {
     grid-template-columns: 1fr 1fr;
 }
