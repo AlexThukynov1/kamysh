@@ -82,7 +82,7 @@ onUnmounted(() => {
     z-index: var(--z-100);
 }
 .nav__container {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     justify-content: space-between;
     padding-block: 0.5rem;
     align-items: center;
@@ -91,6 +91,9 @@ onUnmounted(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.logo {
+    max-width: 120px;
 }
 .blur-header::after {
   content: '';

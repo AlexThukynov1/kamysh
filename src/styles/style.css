@@ -138,7 +138,14 @@ img {
   margin-inline: auto
 }
 }
-@media screen and (max-width: 1150px) {}
+@media screen and (min-width: 1150px) {
+
+}
+@media screen and (max-width: 1155px) {
+  .container {
+    margin-inline: 1.5rem
+  }
+}
 @media screen and (min-width: 768px) {}
 @media screen and (min-width: 540px) {}
 @media screen and (max-width: 425px) {}

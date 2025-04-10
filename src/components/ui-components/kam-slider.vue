@@ -9,7 +9,8 @@
             <div
             v-if="activeIndex === key"
             >
-                <img 
+                <img
+                class="slider-image" 
                 :src="item.src" 
                 :alt="item.alt"
                 
@@ -107,6 +108,9 @@ onUnmounted(() => {
 }
 .lazy-visible {
     opacity: 1;
+}
+.slider-image {
+    max-width: 1000px;
 }
 .slider-text {
     position: absolute;

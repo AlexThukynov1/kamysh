@@ -25,14 +25,20 @@
             </div>
             <kam-button>Call to action</kam-button>
         </kam-section>
-        <kam-section id="contacts"></kam-section>
+        <kam-section id="contacts">
+            <h2 class="section__title">Contacts</h2>
+            <div class="contacts__section grid">
+            <kam-form></kam-form>
+            </div>    
+        </kam-section>
     </main>
 </template>
 
 <script setup lang="ts">
     import kamSection from './layout-components/kam-section.vue';
     import kamSlider from './ui-components/kam-slider.vue';
-    import kamButton from './ui-components/kam-button.vue'
+    import kamButton from './ui-components/kam-button.vue';
+    import kamForm from './layout-components/kam-form.vue';
 </script>
 
 <style scoped>
