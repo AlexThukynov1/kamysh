@@ -107,6 +107,10 @@ img {
 
 .section {
   padding-block: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
 }
 
 .section__title {
